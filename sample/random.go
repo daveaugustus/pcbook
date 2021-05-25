@@ -36,7 +36,8 @@ func randomFloat32(min, max float32) float32 {
 }
 
 func randomID() string {
-	return uuid.New().String()
+	// return uuid.New().String()
+	return "1233434"
 }
 
 func randomKeyboardLayout() pb.Keyboard_Layout {
