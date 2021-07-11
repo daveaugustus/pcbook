@@ -13,6 +13,7 @@ var ErrAlreadyExists = errors.New("record already exists")
 
 type LaptopStore interface {
 	Save(laptop *pb.Laptop) error
+	Find(string) (*pb.Laptop, error)
 }
 
 type InMemoryLaptopStore struct {
@@ -44,4 +45,24 @@ func (store *InMemoryLaptopStore) Save(laptop *pb.Laptop) error {
 	store.data[other.Id] = other
 
 	return nil
+}
+
+func (store *InMemoryLaptopStore) Find(id string) (*pb.Laptop, error) {
+	store.mutex.RLock()
+	defer store.mutex.RUnlock()
+
+	laptop := store.data[id]
+
+	if laptop == nil {
+		return nil, nil
+	}
+
+	// deep copy
+	other := &pb.Laptop{}
+	err := copier.Copy(other, laptop)
+	if err != nil {
+		return nil, fmt.Errorf("canot copy laptop data: %w", err)
+	}
+
+	return other, nil
 }
