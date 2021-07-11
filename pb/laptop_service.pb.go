@@ -102,27 +102,111 @@ func (m *CreateLaptopResponse) GetId() string {
 	return ""
 }
 
+type SearchLaptopRequest struct {
+	Filter               *Filter  `protobuf:"bytes,1,opt,name=filter,proto3" json:"filter,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SearchLaptopRequest) Reset()         { *m = SearchLaptopRequest{} }
+func (m *SearchLaptopRequest) String() string { return proto.CompactTextString(m) }
+func (*SearchLaptopRequest) ProtoMessage()    {}
+func (*SearchLaptopRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_240c60d9fb227e71, []int{2}
+}
+
+func (m *SearchLaptopRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SearchLaptopRequest.Unmarshal(m, b)
+}
+func (m *SearchLaptopRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SearchLaptopRequest.Marshal(b, m, deterministic)
+}
+func (m *SearchLaptopRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SearchLaptopRequest.Merge(m, src)
+}
+func (m *SearchLaptopRequest) XXX_Size() int {
+	return xxx_messageInfo_SearchLaptopRequest.Size(m)
+}
+func (m *SearchLaptopRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SearchLaptopRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SearchLaptopRequest proto.InternalMessageInfo
+
+func (m *SearchLaptopRequest) GetFilter() *Filter {
+	if m != nil {
+		return m.Filter
+	}
+	return nil
+}
+
+type SearchLaptopResponse struct {
+	Laptop               *Laptop  `protobuf:"bytes,1,opt,name=laptop,proto3" json:"laptop,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SearchLaptopResponse) Reset()         { *m = SearchLaptopResponse{} }
+func (m *SearchLaptopResponse) String() string { return proto.CompactTextString(m) }
+func (*SearchLaptopResponse) ProtoMessage()    {}
+func (*SearchLaptopResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_240c60d9fb227e71, []int{3}
+}
+
+func (m *SearchLaptopResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SearchLaptopResponse.Unmarshal(m, b)
+}
+func (m *SearchLaptopResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SearchLaptopResponse.Marshal(b, m, deterministic)
+}
+func (m *SearchLaptopResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SearchLaptopResponse.Merge(m, src)
+}
+func (m *SearchLaptopResponse) XXX_Size() int {
+	return xxx_messageInfo_SearchLaptopResponse.Size(m)
+}
+func (m *SearchLaptopResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SearchLaptopResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SearchLaptopResponse proto.InternalMessageInfo
+
+func (m *SearchLaptopResponse) GetLaptop() *Laptop {
+	if m != nil {
+		return m.Laptop
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*CreateLaptopRequest)(nil), "techschool.pcbook.CreateLaptopRequest")
 	proto.RegisterType((*CreateLaptopResponse)(nil), "techschool.pcbook.CreateLaptopResponse")
+	proto.RegisterType((*SearchLaptopRequest)(nil), "techschool.pcbook.SearchLaptopRequest")
+	proto.RegisterType((*SearchLaptopResponse)(nil), "techschool.pcbook.SearchLaptopResponse")
 }
 
 func init() { proto.RegisterFile("laptop_service.proto", fileDescriptor_240c60d9fb227e71) }
 
 var fileDescriptor_240c60d9fb227e71 = []byte{
-	// 186 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x12, 0xc9, 0x49, 0x2c, 0x28,
-	0xc9, 0x2f, 0x88, 0x2f, 0x4e, 0x2d, 0x2a, 0xcb, 0x4c, 0x4e, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9,
-	0x17, 0x12, 0x2c, 0x49, 0x4d, 0xce, 0x28, 0x4e, 0xce, 0xc8, 0xcf, 0xcf, 0xd1, 0x2b, 0x48, 0x4e,
-	0xca, 0xcf, 0xcf, 0x96, 0x82, 0x29, 0xcc, 0x4d, 0x2d, 0x2e, 0x4e, 0x4c, 0x87, 0x2a, 0x54, 0xf2,
-	0xe0, 0x12, 0x76, 0x2e, 0x4a, 0x4d, 0x2c, 0x49, 0xf5, 0x01, 0xcb, 0x06, 0xa5, 0x16, 0x96, 0xa6,
-	0x16, 0x97, 0x08, 0x19, 0x72, 0xb1, 0x41, 0x94, 0x4b, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x1b, 0x49,
-	0xea, 0x61, 0x18, 0xa8, 0x07, 0xd5, 0x01, 0x55, 0xa8, 0xa4, 0xc6, 0x25, 0x82, 0x6a, 0x52, 0x71,
-	0x41, 0x7e, 0x5e, 0x71, 0xaa, 0x10, 0x1f, 0x17, 0x53, 0x66, 0x0a, 0xd8, 0x18, 0xce, 0x20, 0xa6,
-	0xcc, 0x14, 0xa3, 0x22, 0x2e, 0x5e, 0x88, 0x8a, 0x60, 0x88, 0x8b, 0x85, 0x12, 0xb9, 0x78, 0x90,
-	0x35, 0x0a, 0xa9, 0x61, 0xb1, 0x0b, 0x8b, 0x1b, 0xa5, 0xd4, 0x09, 0xaa, 0x83, 0xb8, 0x40, 0x89,
-	0xc1, 0x89, 0x25, 0x8a, 0xa9, 0x20, 0x29, 0x89, 0x0d, 0xec, 0x65, 0x63, 0x40, 0x00, 0x00, 0x00,
-	0xff, 0xff, 0x1f, 0xac, 0xb2, 0xb0, 0x33, 0x01, 0x00, 0x00,
+	// 248 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x94, 0x91, 0xc1, 0x4a, 0xc4, 0x30,
+	0x14, 0x45, 0xa7, 0x45, 0x06, 0x7c, 0x8e, 0x82, 0x31, 0x0b, 0xed, 0x4a, 0xb2, 0x18, 0x5d, 0x05,
+	0x1d, 0xff, 0x40, 0x41, 0x14, 0x5c, 0x75, 0x76, 0x6e, 0x24, 0xcd, 0x3c, 0x6d, 0xb0, 0xfa, 0x62,
+	0x12, 0xfd, 0x55, 0x7f, 0x47, 0x4c, 0x22, 0x4c, 0x99, 0xa0, 0xb8, 0x0d, 0xe7, 0xdd, 0x73, 0x7b,
+	0x0b, 0x7c, 0x50, 0x36, 0x90, 0x7d, 0xf0, 0xe8, 0x3e, 0x8c, 0x46, 0x69, 0x1d, 0x05, 0x62, 0xfb,
+	0x01, 0x75, 0xef, 0x75, 0x4f, 0x34, 0x48, 0xab, 0x3b, 0xa2, 0xe7, 0xe6, 0x07, 0x7c, 0x41, 0xef,
+	0xd5, 0x53, 0x06, 0x1b, 0xfe, 0x68, 0x86, 0x80, 0x6e, 0xfc, 0x2a, 0x6e, 0xe0, 0xe0, 0xca, 0xa1,
+	0x0a, 0x78, 0x17, 0x6f, 0x5a, 0x7c, 0x7b, 0x47, 0x1f, 0xd8, 0x39, 0x4c, 0x53, 0xc8, 0x61, 0x75,
+	0x5c, 0x9d, 0xee, 0x2c, 0x8e, 0xe4, 0x86, 0x46, 0xe6, 0x8b, 0x0c, 0x8a, 0x39, 0xf0, 0x71, 0x92,
+	0xb7, 0xf4, 0xea, 0x91, 0xed, 0x41, 0x6d, 0x56, 0x31, 0x66, 0xbb, 0xad, 0xcd, 0xea, 0xdb, 0xb8,
+	0x44, 0xe5, 0x74, 0xbf, 0x61, 0x4c, 0x05, 0x7f, 0x31, 0x5e, 0x47, 0xa0, 0xcd, 0xa0, 0xb8, 0x05,
+	0x3e, 0x4e, 0xca, 0xc6, 0xff, 0x97, 0x5f, 0x7c, 0x56, 0xb0, 0x9b, 0x9e, 0x96, 0x69, 0x5d, 0xa6,
+	0x60, 0xb6, 0xfe, 0x39, 0x6c, 0x5e, 0x08, 0x29, 0x2c, 0xd7, 0x9c, 0xfc, 0xc9, 0xa5, 0x96, 0x62,
+	0xc2, 0x34, 0xcc, 0xd6, 0xfb, 0x17, 0x15, 0x85, 0xa9, 0x8a, 0x8a, 0xd2, 0x10, 0x62, 0x72, 0x56,
+	0x5d, 0x6e, 0xdd, 0xd7, 0xb6, 0xeb, 0xa6, 0xf1, 0x6f, 0x5f, 0x7c, 0x05, 0x00, 0x00, 0xff, 0xff,
+	0x8f, 0xdd, 0xcc, 0xb4, 0x44, 0x02, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -138,6 +222,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type LaptopServiceClient interface {
 	CreateLaptop(ctx context.Context, in *CreateLaptopRequest, opts ...grpc.CallOption) (*CreateLaptopResponse, error)
+	SearchLaptop(ctx context.Context, in *SearchLaptopRequest, opts ...grpc.CallOption) (LaptopService_SearchLaptopClient, error)
 }
 
 type laptopServiceClient struct {
@@ -157,9 +242,42 @@ func (c *laptopServiceClient) CreateLaptop(ctx context.Context, in *CreateLaptop
 	return out, nil
 }
 
+func (c *laptopServiceClient) SearchLaptop(ctx context.Context, in *SearchLaptopRequest, opts ...grpc.CallOption) (LaptopService_SearchLaptopClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_LaptopService_serviceDesc.Streams[0], "/techschool.pcbook.LaptopService/SearchLaptop", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &laptopServiceSearchLaptopClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type LaptopService_SearchLaptopClient interface {
+	Recv() (*SearchLaptopResponse, error)
+	grpc.ClientStream
+}
+
+type laptopServiceSearchLaptopClient struct {
+	grpc.ClientStream
+}
+
+func (x *laptopServiceSearchLaptopClient) Recv() (*SearchLaptopResponse, error) {
+	m := new(SearchLaptopResponse)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // LaptopServiceServer is the server API for LaptopService service.
 type LaptopServiceServer interface {
 	CreateLaptop(context.Context, *CreateLaptopRequest) (*CreateLaptopResponse, error)
+	SearchLaptop(*SearchLaptopRequest, LaptopService_SearchLaptopServer) error
 }
 
 // UnimplementedLaptopServiceServer can be embedded to have forward compatible implementations.
@@ -168,6 +286,9 @@ type UnimplementedLaptopServiceServer struct {
 
 func (*UnimplementedLaptopServiceServer) CreateLaptop(ctx context.Context, req *CreateLaptopRequest) (*CreateLaptopResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateLaptop not implemented")
+}
+func (*UnimplementedLaptopServiceServer) SearchLaptop(req *SearchLaptopRequest, srv LaptopService_SearchLaptopServer) error {
+	return status.Errorf(codes.Unimplemented, "method SearchLaptop not implemented")
 }
 
 func RegisterLaptopServiceServer(s *grpc.Server, srv LaptopServiceServer) {
@@ -192,6 +313,27 @@ func _LaptopService_CreateLaptop_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
+func _LaptopService_SearchLaptop_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(SearchLaptopRequest)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(LaptopServiceServer).SearchLaptop(m, &laptopServiceSearchLaptopServer{stream})
+}
+
+type LaptopService_SearchLaptopServer interface {
+	Send(*SearchLaptopResponse) error
+	grpc.ServerStream
+}
+
+type laptopServiceSearchLaptopServer struct {
+	grpc.ServerStream
+}
+
+func (x *laptopServiceSearchLaptopServer) Send(m *SearchLaptopResponse) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _LaptopService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "techschool.pcbook.LaptopService",
 	HandlerType: (*LaptopServiceServer)(nil),
@@ -201,6 +343,12 @@ var _LaptopService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _LaptopService_CreateLaptop_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "SearchLaptop",
+			Handler:       _LaptopService_SearchLaptop_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "laptop_service.proto",
 }
